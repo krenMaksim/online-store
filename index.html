@@ -95,6 +95,32 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+// Prevent footer jumping by reserving space equal to the tallest tab-pane
+(function(){
+  var tabContent = document.getElementById('pills-tabContent');
+  if(!tabContent) return;
+  function updateMinHeight(){
+    var panes = tabContent.querySelectorAll('.tab-pane');
+    var max = 0;
+    panes.forEach(function(p){
+      // Temporarily show to measure if hidden
+      var isHidden = !p.classList.contains('show');
+      var prevDisplay = p.style.display;
+      if(isHidden){ p.style.display = 'block'; }
+      var h = p.scrollHeight;
+      if(isHidden){ p.style.display = prevDisplay || ''; }
+      if(h > max) max = h;
+    });
+    tabContent.style.minHeight = max + 'px';
+  }
+  // Initial calculation
+  updateMinHeight();
+  // Recalculate on tab change and window resize
+  document.addEventListener('shown.bs.tab', updateMinHeight);
+  window.addEventListener('resize', updateMinHeight);
+})();
+</script>
 <!-- MAINTENANCE: Hybrid approach — tab panes follow new_2 structure; styling palette & serif headings from new_4. Add new tab by duplicating a nav-pill + tab-pane pair. -->
 </body>
 </html>
