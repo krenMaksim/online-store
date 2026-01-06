@@ -3,11 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>bu-krama.by — Одностраничный сайт (Hybrid Tabs + Elegant)</title>
+    <title>bu-krama.by — Детская одежда секонд‑хенд</title>
     <meta
       name="description"
-      content="Вариант с табами и элегантной цветовой схемой"
+      content="Интернет-магазин секонд‑хенд детской одежды: удобный заказ, доставка по Беларуси, поддержка устойчивой моды."
     />
+    <link rel="canonical" href="https://www.bu-krama.by/" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <meta property="og:title" content="bu-krama.by — Детская одежда секонд‑хенд" />
+    <meta property="og:description" content="Интернет-магазин секонд‑хенд детской одежды: удобный заказ, доставка по Беларуси." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_BY" />
+    <meta property="og:url" content="https://www.bu-krama.by/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#198754" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,7 +26,8 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" aria-label="Основная навигация">
       <div class="container">
         <a class="navbar-brand h-serif" href="/">bu-krama.by</a>
         <button
@@ -24,6 +35,9 @@
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#nav7"
+          aria-controls="nav7"
+          aria-expanded="false"
+          aria-label="Переключить навигацию"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,7 +48,7 @@
                 class="nav-link active"
                 id="pills-about-tab"
                 data-bs-toggle="tab"
-                href="#about"
+                href="#pills-about"
                 data-bs-target="#pills-about"
                 role="tab"
                 aria-controls="pills-about"
@@ -46,7 +60,7 @@
                 class="nav-link"
                 id="pills-delivery-tab"
                 data-bs-toggle="tab"
-                href="#delivery"
+                href="#pills-delivery"
                 data-bs-target="#pills-delivery"
                 role="tab"
                 aria-controls="pills-delivery"
@@ -58,7 +72,7 @@
                 class="nav-link"
                 id="pills-order-tab"
                 data-bs-toggle="tab"
-                href="#order"
+                href="#pills-order"
                 data-bs-target="#pills-order"
                 role="tab"
                 aria-controls="pills-order"
@@ -70,7 +84,7 @@
                 class="nav-link"
                 id="pills-contacts-tab"
                 data-bs-toggle="tab"
-                href="#contacts"
+                href="#pills-contacts"
                 data-bs-target="#pills-contacts"
                 role="tab"
                 aria-controls="pills-contacts"
@@ -82,7 +96,7 @@
                 class="nav-link"
                 id="pills-rostovki-tab"
                 data-bs-toggle="tab"
-                href="#rostovki"
+                href="#pills-rostovki"
                 data-bs-target="#pills-rostovki"
                 role="tab"
                 aria-controls="pills-rostovki"
@@ -94,7 +108,7 @@
                 class="nav-link"
                 id="pills-feedback-tab"
                 data-bs-toggle="tab"
-                href="#feedback"
+                href="#pills-feedback"
                 data-bs-target="#pills-feedback"
                 role="tab"
                 aria-controls="pills-feedback"
@@ -106,7 +120,7 @@
                 class="nav-link"
                 id="pills-offer-tab"
                 data-bs-toggle="tab"
-                href="#offer"
+                href="#pills-offer"
                 data-bs-target="#pills-offer"
                 role="tab"
                 aria-controls="pills-offer"
@@ -124,9 +138,11 @@
         <h1 class="h-serif">Интернет-магазин bu-krama.by</h1>       
       </div>
     </section>
+    </header>
 
     <!-- Tabs -->
-    <section id="tabs" class="py-5 bg-white">
+    <main>
+    <section id="tabs" class="py-5 bg-white" aria-label="Разделы сайта">
       <div class="container">
         <!-- Tabs moved to navbar -->
 
@@ -186,8 +202,8 @@
                 <div id="order-step1" class="collapse">
                   <div class="p-3 border rounded bg-white shadow-soft mt-2">                    
                     <p class="meta mb-0">
-                      Внимательно смотрите на фото, ориентируйтесь на размеры, 
-                      а не на размер (они указаны примерно). Вещи обмену и возврату
+                      Внимательно смотрите фото и ориентируйтесь на мерки,
+                      а не только на указанный размер (он может быть приблизительным). Вещи обмену и возврату
                       не подлежат - помните об этом и подходите к покупке ответственно. 
                     </p>
                   </div>
@@ -231,7 +247,7 @@
                       Указать данные для получения заказа:<br>
                       - ФИО получателя<br>
                       - Адрес доставки (адрес почты)<br>
-                      - Контактный телефон
+                      - Контактный телефон (например, <a href="tel:+375336983918" aria-label="Позвонить по номеру +375 33 698-39-18">+375 (33) 698‑39‑18</a>)
                     </p>
                   </div>
                 </div>
@@ -316,7 +332,7 @@
               Email:
               <a href="mailto:yxomichuk@yandex.ru">yxomichuk@yandex.ru</a>
               <br />
-              Тел.: +375 (33) 698‑39‑18 (Viber)
+              Тел.: <a href="tel:+375336983918" aria-label="Позвонить по номеру +375 33 698-39-18">+375 (33) 698‑39‑18</a> (Viber)
             </p>
           </div>
 
@@ -328,6 +344,7 @@
             </p>           
             <div class="table-responsive">
               <table class="table table-sm align-middle">
+                <caption class="meta">Соответствие роста и примерного возраста</caption>
                 <thead>
                   <tr>
                     <th scope="col">Рост, см</th>
@@ -504,6 +521,7 @@ e-mail: yxomichuk@yandex.ru
         </div>
       </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -543,88 +561,18 @@ e-mail: yxomichuk@yandex.ru
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-    <script>
-      // Set min-height based on the active tab to avoid excessive blank space
       (function () {
-        var tabContent = document.getElementById('pills-tabContent');
-        if (!tabContent) return;
+        // Year stamp
+        var yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        function updateMinHeight() {
-          var activePane = tabContent.querySelector('.tab-pane.active.show') ||
-                           tabContent.querySelector('.tab-pane.show');
-          var h = activePane ? activePane.scrollHeight : 0;
-          var baseMin = 240; // prevent flicker on very short panes
-          tabContent.style.minHeight = Math.max(h, baseMin) + 'px';
-        }
-
-        // Initial calculation
-        updateMinHeight();
-        // Recalculate on tab change and window resize
-        document.addEventListener('shown.bs.tab', updateMinHeight);
-        window.addEventListener('resize', updateMinHeight);
-      })();
-    </script>
-    <script>
-      // Enable external links (e.g., in footer) to open a specific tab
-      (function () {
-        var links = document.querySelectorAll('[data-open-tab]');
-        links.forEach(function (link) {
-          link.addEventListener('click', function () {
-            var targetSelector = link.getAttribute('data-open-tab');
-            var trigger = document.querySelector('[data-bs-target="' + targetSelector + '"]');
-            if (trigger && window.bootstrap && bootstrap.Tab) {
-              var tab = bootstrap.Tab.getOrCreateInstance(trigger);
-              tab.show();
-              // Keep URL hash consistent with aliases for shareable links
-              var alias = (targetSelector || '').replace(/^#pills-/, '');
-              if (alias) {
-                try { history.replaceState(null, '', '#' + alias); } catch (e) { location.hash = alias; }
-              }
-            }
-          });
-        });
-      })();
-    </script>
-    <script>
-      // On tab activation, scroll to Tabs section and collapse mobile navbar
-      (function () {
         var tabsSection = document.getElementById('tabs');
         var navCollapse = document.getElementById('nav7');
-        var triggers = document.querySelectorAll('#nav7 [data-bs-toggle="tab"]');
-        triggers.forEach(function (trigger) {
-          trigger.addEventListener('shown.bs.tab', function (e) {
-            if (tabsSection && typeof tabsSection.scrollIntoView === 'function') {
-              tabsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            if (navCollapse && window.bootstrap && bootstrap.Collapse) {
-              var collapse = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
-              collapse.hide();
-            }
-            // Update URL hash to reflect the active tab (e.g., #delivery)
-            var targetSel = (e && e.target && e.target.getAttribute('data-bs-target')) || '';
-            var alias = targetSel.replace(/^#pills-/, '');
-            if (alias) {
-              try { history.replaceState(null, '', '#' + alias); } catch (err) { location.hash = alias; }
-            }
-          });
-        });
-      })();
-    </script>
-    <script>
-      // Hash-based navigation: aliases like #about, #delivery, etc. activate tabs
-      (function () {
-        function showTabByAlias(alias) {
-          if (!alias) return;
-          var trigger = document.querySelector('#nav7 [data-tab-alias="' + alias + '"]') ||
-                        document.querySelector('#nav7 [href="#' + alias + '"][data-bs-toggle="tab"]');
-          if (trigger && window.bootstrap && bootstrap.Tab) {
-            var tab = bootstrap.Tab.getOrCreateInstance(trigger);
-            tab.show();
-          }
-        }
+        var tabContent = document.getElementById('pills-tabContent');
+        var reduceMotion = false;
+        try { reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
 
+        // Initialize aliases on nav triggers
         function initAliases() {
           var triggers = document.querySelectorAll('#nav7 [data-bs-toggle="tab"]');
           triggers.forEach(function (trigger) {
@@ -634,23 +582,109 @@ e-mail: yxomichuk@yandex.ru
           });
         }
 
+        // Show tab by alias
+        function showTabByAlias(alias) {
+          if (!alias) return;
+          var trigger = document.querySelector('#nav7 [data-tab-alias="' + alias + '"]');
+          if (trigger && window.bootstrap && bootstrap.Tab) {
+            var tab = bootstrap.Tab.getOrCreateInstance(trigger);
+            tab.show();
+          }
+        }
+
+        // Throttled min-height adjustment to prevent layout jumps
+        var rafId = null;
+        function updateMinHeight() {
+          if (!tabContent) return;
+          if (rafId) return;
+          rafId = requestAnimationFrame(function () {
+            rafId = null;
+            var activePane = tabContent.querySelector('.tab-pane.active.show') || tabContent.querySelector('.tab-pane.show');
+            var h = activePane ? activePane.scrollHeight : 0;
+            var baseMin = 240;
+            tabContent.style.minHeight = Math.max(h, baseMin) + 'px';
+          });
+        }
+
+        // External links to open specific tabs
+        var links = document.querySelectorAll('[data-open-tab]');
+        links.forEach(function (link) {
+          link.addEventListener('click', function (ev) {
+            var targetSelector = link.getAttribute('data-open-tab');
+            var trigger = document.querySelector('[data-bs-target="' + targetSelector + '"]');
+            if (trigger && window.bootstrap && bootstrap.Tab) {
+              ev.preventDefault();
+              var tab = bootstrap.Tab.getOrCreateInstance(trigger);
+              tab.show();
+              var alias = (targetSelector || '').replace(/^#pills-/, '');
+              if (alias) {
+                try { history.replaceState(null, '', '#' + alias); } catch (e) { location.hash = alias; }
+              }
+              if (tabsSection && typeof tabsSection.scrollIntoView === 'function') {
+                tabsSection.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+              }
+            }
+          });
+        });
+
+        // On tab activation: scroll to tabs, collapse navbar, update hash, and adjust height
+        var triggers = document.querySelectorAll('#nav7 [data-bs-toggle="tab"]');
+        triggers.forEach(function (trigger) {
+          trigger.addEventListener('shown.bs.tab', function (e) {
+            if (tabsSection && typeof tabsSection.scrollIntoView === 'function') {
+              tabsSection.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+            }
+            if (navCollapse && window.bootstrap && bootstrap.Collapse) {
+              var collapse = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
+              collapse.hide();
+            }
+            var targetSel = (e && e.target && e.target.getAttribute('data-bs-target')) || '';
+            var alias = targetSel.replace(/^#pills-/, '');
+            if (alias) {
+              try { history.replaceState(null, '', '#' + alias); } catch (err) { location.hash = alias; }
+            }
+            updateMinHeight();
+          });
+        });
+
+        // Hash-based navigation
         function handleHash() {
           var hash = (window.location.hash || '').replace(/^#/, '');
           if (!hash) return;
           if (hash === 'tabs') {
-            var tabsSection = document.getElementById('tabs');
             if (tabsSection && typeof tabsSection.scrollIntoView === 'function') {
-              tabsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              tabsSection.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
             }
             return;
           }
           showTabByAlias(hash);
         }
 
+        // Init
         initAliases();
         handleHash();
+        updateMinHeight();
         window.addEventListener('hashchange', handleHash);
+        window.addEventListener('resize', updateMinHeight, { passive: true });
       })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "bu-krama.by",
+      "url": "https://www.bu-krama.by/",
+      "email": "mailto:yxomichuk@yandex.ru",
+      "telephone": "+375336983918",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Карвата, д. 27, кв. 54",
+        "addressLocality": "Минск",
+        "postalCode": "220138",
+        "addressCountry": "BY"
+      },
+      "openingHours": "Mo-Fr 10:00-17:00"
+    }
     </script>
   </body>
 </html>

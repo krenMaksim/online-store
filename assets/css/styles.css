@@ -12,6 +12,11 @@
   --ink: #2b2b2b;
   --light: #ffffff;
   --shadow: 0 .5rem 1.25rem rgba(0, 0, 0, .08);
+  /* Bootstrap CSS variables for consistent theming */
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--ink);
+  --bs-primary: var(--primary);
+  --bs-success: var(--primary);
 }
 
 /* Base */
@@ -55,7 +60,7 @@ body {
 .hero {
   /* Photo/illustration background with soft overlay and palette match */
   background-image:
-    linear-gradient(to bottom, rgba(26, 31, 29, 0.28), rgba(26, 31, 29, 0.18)),
+    linear-gradient(to bottom, rgba(26, 31, 29, 0.38), rgba(26, 31, 29, 0.28)),
     url('../img/hero-fabric.svg'),
     linear-gradient(135deg, #e8f5e9, #fff);
   background-repeat: no-repeat, repeat, no-repeat;
@@ -101,6 +106,27 @@ body {
 
 .btn-success:hover {
   filter: brightness(0.92);
+}
+
+/* Focus visibility for accessibility */
+.nav-link:focus-visible,
+.btn-link:focus-visible,
+.footer a:focus-visible,
+a:focus-visible {
+  outline: 3px solid #9fd3b5;
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+  .tab-pane {
+    animation: none !important;
+  }
 }
 
 /* Footer */
