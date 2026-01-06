@@ -34,7 +34,7 @@
                 class="nav-link active"
                 id="pills-about-tab"
                 data-bs-toggle="tab"
-                href="#tabs"
+                href="#about"
                 data-bs-target="#pills-about"
                 role="tab"
                 aria-controls="pills-about"
@@ -46,7 +46,7 @@
                 class="nav-link"
                 id="pills-delivery-tab"
                 data-bs-toggle="tab"
-                href="#tabs"
+                href="#delivery"
                 data-bs-target="#pills-delivery"
                 role="tab"
                 aria-controls="pills-delivery"
@@ -58,7 +58,7 @@
                 class="nav-link"
                 id="pills-order-tab"
                 data-bs-toggle="tab"
-                href="#tabs"
+                href="#order"
                 data-bs-target="#pills-order"
                 role="tab"
                 aria-controls="pills-order"
@@ -70,7 +70,7 @@
                 class="nav-link"
                 id="pills-contacts-tab"
                 data-bs-toggle="tab"
-                href="#tabs"
+                href="#contacts"
                 data-bs-target="#pills-contacts"
                 role="tab"
                 aria-controls="pills-contacts"
@@ -82,7 +82,7 @@
                 class="nav-link"
                 id="pills-rostovki-tab"
                 data-bs-toggle="tab"
-                href="#tabs"
+                href="#rostovki"
                 data-bs-target="#pills-rostovki"
                 role="tab"
                 aria-controls="pills-rostovki"
@@ -94,7 +94,7 @@
                 class="nav-link"
                 id="pills-feedback-tab"
                 data-bs-toggle="tab"
-                href="#tabs"
+                href="#feedback"
                 data-bs-target="#pills-feedback"
                 role="tab"
                 aria-controls="pills-feedback"
@@ -106,7 +106,7 @@
                 class="nav-link"
                 id="pills-offer-tab"
                 data-bs-toggle="tab"
-                href="#tabs"
+                href="#offer"
                 data-bs-target="#pills-offer"
                 role="tab"
                 aria-controls="pills-offer"
@@ -525,7 +525,7 @@ e-mail: yxomichuk@yandex.ru
                   <p>Свидетельство о государственной регистрации №193928266 <br>от 13.11.2025, выданное Минским горисполкомом</p>
                   <p>Зарегистрирован в Едином Торговом реестре Республики Беларусь 11.11.2011 за №00000000</p>
                   <p>Режим работы: Пн-Пт 10:00-17:00</p>
-                  <p><a href="#tabs" data-open-tab="#pills-offer">Договор оферты</a></p>
+                  <p><a href="#offer" data-open-tab="#pills-offer">Договор оферты</a></p>
                 </div>
               </div>
             </div>
@@ -577,6 +577,11 @@ e-mail: yxomichuk@yandex.ru
             if (trigger && window.bootstrap && bootstrap.Tab) {
               var tab = bootstrap.Tab.getOrCreateInstance(trigger);
               tab.show();
+              // Keep URL hash consistent with aliases for shareable links
+              var alias = (targetSelector || '').replace(/^#pills-/, '');
+              if (alias) {
+                try { history.replaceState(null, '', '#' + alias); } catch (e) { location.hash = alias; }
+              }
             }
           });
         });
@@ -589,7 +594,7 @@ e-mail: yxomichuk@yandex.ru
         var navCollapse = document.getElementById('nav7');
         var triggers = document.querySelectorAll('#nav7 [data-bs-toggle="tab"]');
         triggers.forEach(function (trigger) {
-          trigger.addEventListener('shown.bs.tab', function () {
+          trigger.addEventListener('shown.bs.tab', function (e) {
             if (tabsSection && typeof tabsSection.scrollIntoView === 'function') {
               tabsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -597,8 +602,54 @@ e-mail: yxomichuk@yandex.ru
               var collapse = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
               collapse.hide();
             }
+            // Update URL hash to reflect the active tab (e.g., #delivery)
+            var targetSel = (e && e.target && e.target.getAttribute('data-bs-target')) || '';
+            var alias = targetSel.replace(/^#pills-/, '');
+            if (alias) {
+              try { history.replaceState(null, '', '#' + alias); } catch (err) { location.hash = alias; }
+            }
           });
         });
+      })();
+    </script>
+    <script>
+      // Hash-based navigation: aliases like #about, #delivery, etc. activate tabs
+      (function () {
+        function showTabByAlias(alias) {
+          if (!alias) return;
+          var trigger = document.querySelector('#nav7 [data-tab-alias="' + alias + '"]') ||
+                        document.querySelector('#nav7 [href="#' + alias + '"][data-bs-toggle="tab"]');
+          if (trigger && window.bootstrap && bootstrap.Tab) {
+            var tab = bootstrap.Tab.getOrCreateInstance(trigger);
+            tab.show();
+          }
+        }
+
+        function initAliases() {
+          var triggers = document.querySelectorAll('#nav7 [data-bs-toggle="tab"]');
+          triggers.forEach(function (trigger) {
+            var target = trigger.getAttribute('data-bs-target') || '';
+            var alias = target.replace(/^#pills-/, '');
+            if (alias) trigger.setAttribute('data-tab-alias', alias);
+          });
+        }
+
+        function handleHash() {
+          var hash = (window.location.hash || '').replace(/^#/, '');
+          if (!hash) return;
+          if (hash === 'tabs') {
+            var tabsSection = document.getElementById('tabs');
+            if (tabsSection && typeof tabsSection.scrollIntoView === 'function') {
+              tabsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            return;
+          }
+          showTabByAlias(hash);
+        }
+
+        initAliases();
+        handleHash();
+        window.addEventListener('hashchange', handleHash);
       })();
     </script>
   </body>
