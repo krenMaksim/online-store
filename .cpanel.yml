@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    - /bin/echo "Deploying site to public_html"
+    - /usr/bin/rsync -rlptgoDv --delete \
+        --exclude '.git/' \
+        --exclude '.gitignore' \
+        --exclude 'README.md' \
+        --exclude '.cpanel.yml' \
+        ./ /home/bukramaby/public_html/
+    - /bin/echo "Deployment complete"
