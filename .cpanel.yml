@@ -2,5 +2,12 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/bukramaby/public_html/
-    - /usr/bin/rsync -rlptgoDv --delete --exclude='.git/' --exclude='.gitignore' --exclude='README.md' --exclude='.cpanel.yml' ./ $DEPLOYPATH
+    - /bin/echo "Deploying site to $DEPLOYPATH"
+    # Sync files without preserving problematic owner/group/perms
+    - "/usr/bin/rsync -rltDv --delete --exclude='.git/' --exclude='.gitignore' --exclude='README.md' --exclude='.cpanel.yml' --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r ./ $DEPLOYPATH"
+    # Ensure directory and file permissions are web-safe
+    - /bin/chmod 755 "$DEPLOYPATH"
+    - /usr/bin/find "$DEPLOYPATH" -type d -exec /bin/chmod 755 {} +
+    - /usr/bin/find "$DEPLOYPATH" -type f -exec /bin/chmod 644 {} +
+    - if [ -f "$DEPLOYPATH/.htaccess" ]; then /bin/chmod 644 "$DEPLOYPATH/.htaccess"; fi
     - /bin/echo "Deployment complete"
