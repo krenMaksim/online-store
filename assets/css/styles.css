@@ -67,7 +67,11 @@ body {
   background-size: cover, 80px 60px, auto;
   background-position: center, top left, center;
   padding: 5.5rem 0;
-  color: #1f3d2a;
+  color: #ffffff;
+}
+
+.hero .h-serif {
+  text-shadow: 0 2px 6px rgba(0,0,0,.35);
 }
 
 /* Content & Utilities */
