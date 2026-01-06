@@ -53,7 +53,14 @@ body {
 
 /* Hero */
 .hero {
-  background: linear-gradient(135deg, #e8f5e9, #fff);
+  /* Photo/illustration background with soft overlay and palette match */
+  background-image:
+    linear-gradient(to bottom, rgba(26, 31, 29, 0.28), rgba(26, 31, 29, 0.18)),
+    url('../img/hero-fabric.svg'),
+    linear-gradient(135deg, #e8f5e9, #fff);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-size: cover, 80px 60px, auto;
+  background-position: center, top left, center;
   padding: 5.5rem 0;
   color: #1f3d2a;
 }
