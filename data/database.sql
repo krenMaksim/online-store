@@ -1,6 +1,7 @@
 -- Temporarily disable FK enforcement so dependent tables can be dropped cleanly
 PRAGMA foreign_keys = OFF;
 
+DROP VIEW IF EXISTS "Показать_товары";
 DROP TABLE IF EXISTS "Товар";
 DROP TABLE IF EXISTS "Поставщик";
 DROP TABLE IF EXISTS "Тип";
@@ -52,3 +53,21 @@ CREATE TABLE IF NOT EXISTS "Товар" (
     FOREIGN KEY ("Тип_id")       REFERENCES "Тип"("ID")         ON UPDATE CASCADE ON DELETE RESTRICT,
     FOREIGN KEY ("Поставщик_id") REFERENCES "Поставщик"("ID")   ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+-- Read-only view for formatted output
+CREATE VIEW "Показать_товары" AS
+SELECT
+    t."ID",
+    tp."Наименование" AS "Тип",
+    ps."Поставщик"    AS "Поставщик",
+    t."Категория",
+    t."Цвет",
+    replace(printf('%,.2f', t."Цена"), ',', ' ') || ' BYN'         AS "Цена",
+    t."Количество",
+    replace(printf('%,.2f', t."Цена_закупки"), ',', ' ') || ' BYN' AS "Цена_закупки",
+    t."Дата_закупки",
+    replace(printf('%,.2f', t."Цена_продажи"), ',', ' ') || ' BYN' AS "Цена_продажи",
+    t."Дата_продажи"
+FROM "Товар" AS t
+JOIN "Тип"        AS tp ON tp."ID" = t."Тип_id"
+JOIN "Поставщик"  AS ps ON ps."ID" = t."Поставщик_id";
