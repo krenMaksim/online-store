@@ -3,5 +3,5 @@
   <desc id="desc">A colored square with the text 80-86 centered.</desc>
   <rect width="256" height="256" rx="16" fill="#065F46"/>
   <rect x="10" y="10" width="236" height="236" rx="14" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="8"/>
-  <text x="128" y="128" text-anchor="middle" dominant-baseline="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="72" font-weight="700" fill="#FFFFFF">80-86</text>
+  <text x="128" y="128" text-anchor="middle" dominant-baseline="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="52" font-weight="700" fill="#FFFFFF">80-86</text>
 </svg>
