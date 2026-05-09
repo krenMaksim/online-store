@@ -14,12 +14,12 @@ SOURCE_DIR="$REPO_DIR"
 
 # ISPmanager site directory:
 # change this to your real domain path
-TARGET_DIR="/var/www/YOUR_USER/data/www/YOUR_DOMAIN"
+TARGET_DIR="/var/www/h202883/data/www/bu-krama.by"
 
 EXCLUDE_FILE="$REPO_DIR/.deployignore"
 # ====================
 
-if [[ "$TARGET_DIR" == "/var/www/YOUR_USER/data/www/YOUR_DOMAIN" ]]; then
+if [[ "$TARGET_DIR" == "/var/www/h202883/data/www/bu-krama.by" ]]; then
   echo "ERROR: edit deploy.sh and set TARGET_DIR first."
   exit 1
 fi
