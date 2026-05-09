@@ -17,12 +17,6 @@ SOURCE_DIR="$REPO_DIR"
 TARGET_DIR="/var/www/h202883/data/www/bu-krama.by"
 
 EXCLUDE_FILE="$REPO_DIR/.deployignore"
-# ====================
-
-if [[ "$TARGET_DIR" == "/var/www/h202883/data/www/bu-krama.by" ]]; then
-  echo "ERROR: edit deploy.sh and set TARGET_DIR first."
-  exit 1
-fi
 
 if [[ ! -f "$EXCLUDE_FILE" ]]; then
   echo "ERROR: .deployignore not found: $EXCLUDE_FILE"
