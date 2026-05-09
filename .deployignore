@@ -13,3 +13,13 @@ LICENSE*
 .DS_Store
 Thumbs.db
 .env.example
+
+# server/admin/panel files that must stay untouched
+webstat/
+.well-known/
+composer.phar
+composer.json
+composer.lock
+cgi-bin/
+logs/
+tmp/
