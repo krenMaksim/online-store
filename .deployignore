@@ -1,0 +1,15 @@
+.git/
+.github/
+.gitignore
+.gitattributes
+.deployignore
+deploy.sh
+README*
+*.md
+LICENSE*
+.editorconfig
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.env.example
